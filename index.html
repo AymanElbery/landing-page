@@ -3,91 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
     <title>Service Marketplace</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="sticky-top">
+    <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Service Marketplace</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                </ul>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Service Marketplace</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
-
-    <section id="hero">
-        <div class="container text-center">
-            <h1>Welcome to Service Marketplace</h1>
-            <p>Your connection to local technicians.</p>
-            <a href="#" class="btn btn-primary">Get Started</a>
-            <a href="#" class="btn btn-secondary">Join as Technician</a>
-        </div>
-    </section>
-
-    <section id="how-it-works">
+    <section class="hero text-center">
         <div class="container">
-            <h2>How It Works</h2>
-            <p>Simple three-step process.</p>
+            <h1>Welcome to the Service Marketplace</h1>
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Male Technician" class="img-fluid">
         </div>
     </section>
-
-    <section id="features">
-        <div class="container">
-            <h2>Features</h2>
-            <ul>
-                <li>Verified Technicians</li>
-                <li>Competitive Offers</li>
-                <li>Secure Payments</li>
-                <li>24/7 Support</li>
-            </ul>
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <p>Step by step explanation of the service marketplace.</p>
+    </section>
+    <section class="features">
+        <h2>Features</h2>
+        <div class="row">
+            <div class="col-md-3">Feature 1</div>
+            <div class="col-md-3">Feature 2</div>
+            <div class="col-md-3">Feature 3</div>
+            <div class="col-md-3">Feature 4</div>
         </div>
     </section>
-
-    <section id="categories">
-        <div class="container">
-            <h2>Service Categories</h2>
-            <ul>
-                <li>Electricians</li>
-                <li>Plumbers</li>
-                <li>AC Repair</li>
-                <li>Mechanics</li>
-                <li>Painters</li>
-                <li>Carpenters</li>
-            </ul>
+    <section class="service-categories">
+        <h2>Service Categories</h2>
+        <p>List of service categories offered.</p>
+    </section>
+    <section class="testimonials">
+        <h2>Testimonials</h2>
+        <div class="row">
+            <div class="col-md-4">"Review 1"</div>
+            <div class="col-md-4">"Review 2"</div>
+            <div class="col-md-4">"Review 3"</div>
         </div>
     </section>
-
-    <section id="testimonials">
-        <div class="container">
-            <h2>Testimonials</h2>
-            <p>What our customers say.</p>
-        </div>
+    <section class="cta">
+        <h2>Call to Action</h2>
+        <p>Encouragement to take action.</p>
     </section>
-
-    <section id="cta">
-        <div class="container text-center">
-            <h2>Ready to start?</h2>
-            <a href="#" class="btn btn-primary">Get Started</a>
-            <a href="#" class="btn btn-secondary">Join as Technician</a>
-        </div>
-    </section>
-
     <footer>
-        <div class="container">
-            <p>© 2023 Service Marketplace. All rights reserved.</p>
-        </div>
+        <p>Connect with us on social media:</p>
+        <p>Language Switcher</p>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
