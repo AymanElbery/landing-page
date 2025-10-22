@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Customer Dashboard - ITMZZ">
+    <title>Customer Dashboard - ITMZZ</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header" id="dashboardHeader">
+        <div class="container-fluid">
+            <div class="header-content">
+                <!-- Logo & Brand -->
+                <div class="brand-section">
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a href="#" class="brand-logo">
+                        <i class="fas fa-tools brand-icon"></i>
+                        <span class="brand-text">ITMZZ</span>
+                    </a>
+                </div>
+
+                <!-- Search Box -->
+                <div class="search-section">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search requests, technicians, services...">
+                    </div>
+                </div>
+
+                <!-- Right Section -->
+                <div class="header-actions">
+                    <!-- Theme Toggle -->
+                    <button class="action-btn" id="themeToggle" title="Toggle Theme">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </button>
+
+                    <!-- Notifications -->
+                    <div class="dropdown">
+                        <button class="action-btn position-relative" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end notifications-dropdown" aria-labelledby="notificationsDropdown">
+                            <div class="dropdown-header">
+                                <h6>Notifications</h6>
+                                <span class="badge bg-primary">3 New</span>
+                            </div>
+                            <div class="notifications-list">
+                                <a href="#" class="notification-item unread">
+                                    <div class="notification-icon bg-success">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-text">Your job has been completed!</p>
+                                        <span class="notification-time">5 minutes ago</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="notification-item unread">
+                                    <div class="notification-icon bg-info">
+                                        <i class="fas fa-file-invoice"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-text">You received 3 new proposals</p>
+                                        <span class="notification-time">1 hour ago</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="notification-item unread">
+                                    <div class="notification-icon bg-warning">
+                                        <i class="fas fa-message"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-text">New message from technician</p>
+                                        <span class="notification-time">2 hours ago</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="notification-item">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-text">Please rate your recent service</p>
+                                        <span class="notification-time">1 day ago</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="#" class="dropdown-footer">View All Notifications</a>
+                        </div>
+                    </div>
+
+                    <!-- Account Dropdown -->
+                    <div class="dropdown">
+                        <button class="account-btn" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="account-avatar">
+                            <span class="account-name">Sarah Johnson</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end account-dropdown" aria-labelledby="accountDropdown">
+                            <div class="dropdown-header">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="account-avatar-lg">
+                                <div>
+                                    <h6>Sarah Johnson</h6>
+                                    <p class="text-muted small">Premium Member</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>My Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-credit-card me-2"></i>Payment Methods</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i>Help & Support</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-home nav-icon"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-list-alt nav-icon"></i>
+                        <span class="nav-text">My Requests</span>
+                        <span class="badge bg-primary ms-auto">5</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-file-invoice nav-icon"></i>
+                        <span class="nav-text">Proposals</span>
+                        <span class="badge bg-info ms-auto">8</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-briefcase nav-icon"></i>
+                        <span class="nav-text">Active Work</span>
+                        <span class="badge bg-success ms-auto">2</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-credit-card nav-icon"></i>
+                        <span class="nav-text">Payments</span>
+                    </a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog nav-icon"></i>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="content-wrapper">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Welcome Back, Sarah!</h1>
+                    <p class="page-subtitle">Here's what's happening with your service requests today.</p>
+                </div>
+                <button class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#newRequestModal">
+                    <i class="fas fa-plus me-2"></i>Post New Request
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row g-4 mb-4">
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-gradient-purple">
+                            <i class="fas fa-list-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value">8</h3>
+                            <p class="stat-label">Total Requests</p>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>15% from last month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-gradient-pink">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value">12</h3>
+                            <p class="stat-label">Proposals Received</p>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>20% from last month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-gradient-blue">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value">3</h3>
+                            <p class="stat-label">Active Jobs</p>
+                            <div class="stat-change neutral">
+                                <i class="fas fa-minus"></i>
+                                <span>No change</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-gradient-green">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value">15</h3>
+                            <p class="stat-label">Completed Jobs</p>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>25% from last month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-8">
+                    <div class="card-custom">
+                        <div class="card-header-custom">
+                            <h5 class="card-title-custom">Spending Overview</h5>
+                            <div class="card-actions">
+                                <button class="btn btn-sm btn-outline-secondary active">Month</button>
+                                <button class="btn btn-sm btn-outline-secondary">Year</button>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <canvas id="spendingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card-custom">
+                        <div class="card-header-custom">
+                            <h5 class="card-title-custom">Request Status</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <canvas id="requestsChart"></canvas>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #22C55E;"></span>
+                                <span>Completed (50%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #38BDF8;"></span>
+                                <span>In Progress (30%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #A855F7;"></span>
+                                <span>Open (20%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card-custom">
+                        <div class="card-header-custom">
+                            <h5 class="card-title-custom">Recent Requests</h5>
+                            <a href="#" class="btn btn-sm btn-link">View All</a>
+                        </div>
+                        <div class="card-body-custom p-0">
+                            <div class="table-responsive">
+                                <table class="table table-custom">
+                                    <thead>
+                                        <tr>
+                                            <th>Request Title</th>
+                                            <th>Category</th>
+                                            <th>Proposals</th>
+                                            <th>Status</th>
+                                            <th>Budget</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="request-icon bg-gradient-purple">
+                                                        <i class="fas fa-bolt"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">Fix Kitchen Wiring</h6>
+                                                        <small class="text-muted">Posted 2 days ago</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Electrical</td>
+                                            <td><span class="badge bg-info">5 Proposals</span></td>
+                                            <td><span class="badge bg-warning">Reviewing</span></td>
+                                            <td class="fw-bold">$200-$300</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="request-icon bg-gradient-blue">
+                                                        <i class="fas fa-wind"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">AC Maintenance</h6>
+                                                        <small class="text-muted">Posted 3 days ago</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>AC Repair</td>
+                                            <td><span class="badge bg-info">3 Proposals</span></td>
+                                            <td><span class="badge bg-success">In Progress</span></td>
+                                            <td class="fw-bold">$150-$200</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="request-icon bg-gradient-pink">
+                                                        <i class="fas fa-wrench"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">Bathroom Leak Repair</h6>
+                                                        <small class="text-muted">Posted 5 days ago</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Plumbing</td>
+                                            <td><span class="badge bg-info">7 Proposals</span></td>
+                                            <td><span class="badge bg-success">Completed</span></td>
+                                            <td class="fw-bold">$180</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="request-icon bg-gradient-green">
+                                                        <i class="fas fa-paint-roller"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">Living Room Painting</h6>
+                                                        <small class="text-muted">Posted 1 week ago</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Painting</td>
+                                            <td><span class="badge bg-info">4 Proposals</span></td>
+                                            <td><span class="badge bg-success">Completed</span></td>
+                                            <td class="fw-bold">$400</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary">View</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card-custom">
+                        <div class="card-header-custom">
+                            <h5 class="card-title-custom">Quick Actions</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="quick-actions">
+                                <a href="#" class="quick-action-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Post New Request</span>
+                                </a>
+                                <a href="#" class="quick-action-btn">
+                                    <i class="fas fa-search"></i>
+                                    <span>Find Technicians</span>
+                                </a>
+                                <a href="#" class="quick-action-btn">
+                                    <i class="fas fa-file-invoice"></i>
+                                    <span>View Proposals</span>
+                                </a>
+                                <a href="#" class="quick-action-btn">
+                                    <i class="fas fa-message"></i>
+                                    <span>Messages</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-custom mt-4">
+                        <div class="card-header-custom">
+                            <h5 class="card-title-custom">Top Technicians</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="technician-list">
+                                <div class="technician-item">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Technician" class="technician-avatar">
+                                    <div class="technician-info">
+                                        <h6 class="mb-0">Michael Chen</h6>
+                                        <small class="text-muted">Electrician</small>
+                                    </div>
+                                    <div class="technician-rating">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                </div>
+                                <div class="technician-item">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Technician" class="technician-avatar">
+                                    <div class="technician-info">
+                                        <h6 class="mb-0">David Martinez</h6>
+                                        <small class="text-muted">Plumber</small>
+                                    </div>
+                                    <div class="technician-rating">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <span>4.8</span>
+                                    </div>
+                                </div>
+                                <div class="technician-item">
+                                    <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Technician" class="technician-avatar">
+                                    <div class="technician-info">
+                                        <h6 class="mb-0">James Wilson</h6>
+                                        <small class="text-muted">AC Specialist</small>
+                                    </div>
+                                    <div class="technician-rating">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <span>5.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- New Request Modal -->
+    <div class="modal fade" id="newRequestModal" tabindex="-1" aria-labelledby="newRequestModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newRequestModalLabel">Post New Service Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newRequestForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="requestTitle" class="form-label">Request Title <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="requestTitle" placeholder="e.g., Fix Kitchen Electrical Outlet" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="requestCategory" class="form-label">Category <span class="text-danger">*</span></label>
+                                <select class="form-select" id="requestCategory" required>
+                                    <option value="">Select category...</option>
+                                    <option value="electrical">Electrical</option>
+                                    <option value="plumbing">Plumbing</option>
+                                    <option value="ac">AC Repair</option>
+                                    <option value="carpentry">Carpentry</option>
+                                    <option value="painting">Painting</option>
+                                    <option value="mechanic">Mechanic</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="requestDescription" class="form-label">Description <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="requestDescription" rows="4" placeholder="Describe your service needs in detail..." required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="requestBudgetMin" class="form-label">Budget (Min) <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="requestBudgetMin" placeholder="0.00" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="requestBudgetMax" class="form-label">Budget (Max) <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="requestBudgetMax" placeholder="0.00" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="requestLocation" class="form-label">Location <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="requestLocation" placeholder="Enter your address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="requestPhotos" class="form-label">Photos (Optional)</label>
+                            <input type="file" class="form-control" id="requestPhotos" multiple accept="image/*">
+                            <small class="text-muted">You can upload up to 5 photos</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="newRequestForm" class="btn btn-primary btn-custom">Post Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
