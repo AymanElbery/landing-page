@@ -3,93 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <meta name="description" content="Service Marketplace - Connect with trusted local technicians for all your home maintenance needs. Get instant offers from verified experts.">
+    <meta name="keywords" content="technicians, electricians, plumbers, mechanics, home services, service marketplace">
+    <meta name="author" content="Service Marketplace">
+    <title>Service Marketplace - Find Trusted Technicians Near You</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>Service Marketplace</title>
 </head>
 <body>
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Service Marketplace</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                </ul>
+    <!-- Header/Navigation -->
+    <header class="header" id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-tools brand-icon"></i>
+                    <span class="brand-text">Service Marketplace</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#how-it-works">How It Works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-primary btn-sm mx-2" id="themeToggle">
+                                <i class="fas fa-moon" id="themeIcon"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe"></i> EN
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-flag-usa"></i> English</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-flag"></i> العربية</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#cta" class="btn btn-primary btn-custom ms-2">Get Started</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
 
-    <section id="hero">
-        <div class="container text-center">
-            <h1>Welcome to Service Marketplace</h1>
-            <p>Your connection to local technicians.</p>
-            <a href="#" class="btn btn-primary">Get Started</a>
-            <a href="#" class="btn btn-secondary">Join as Technician</a>
-        </div>
-    </section>
-
-    <section id="how-it-works">
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
         <div class="container">
-            <h2>How It Works</h2>
-            <p>Simple three-step process.</p>
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content fade-in">
+                    <h1 class="hero-title">Find Trusted Technicians Near You</h1>
+                    <p class="hero-subtitle">Post your request and get instant offers from verified experts. Connect with skilled professionals for all your home maintenance needs.</p>
+                    <div class="hero-cta">
+                        <a href="#cta" class="btn btn-primary btn-lg btn-custom me-3">
+                            <i class="fas fa-rocket me-2"></i>Get Started
+                        </a>
+                        <a href="#technicians" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-search me-2"></i>Browse Technicians
+                        </a>
+                    </div>
+                    <div class="hero-stats mt-4">
+                        <div class="stat-item">
+                            <h3 class="stat-number">10,000+</h3>
+                            <p class="stat-label">Verified Technicians</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">50,000+</h3>
+                            <p class="stat-label">Jobs Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">4.9/5</h3>
+                            <p class="stat-label">Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image fade-in">
+                    <div class="hero-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" alt="Professional technician" class="img-fluid rounded-3 shadow-lg">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <span>Verified Professional</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <span>4.9 Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
     </section>
 
-    <section id="features">
+    <!-- How It Works Section -->
+    <section class="how-it-works-section" id="how-it-works">
         <div class="container">
-            <h2>Features</h2>
-            <ul>
-                <li>Verified Technicians</li>
-                <li>Competitive Offers</li>
-                <li>Secure Payments</li>
-                <li>24/7 Support</li>
-            </ul>
+            <div class="section-header text-center fade-in">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Get the help you need in three simple steps</p>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-md-4 fade-in">
+                    <div class="step-card card-custom h-100">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3 class="step-title">Post Your Request</h3>
+                        <p class="step-description">Describe your service needs in detail. Include photos, preferred timing, and budget to get accurate proposals.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="step-card card-custom h-100">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="step-title">Compare Proposals</h3>
+                        <p class="step-description">Receive multiple bids from qualified technicians. Review profiles, ratings, and pricing to make an informed decision.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="step-card card-custom h-100">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="step-title">Hire & Pay Securely</h3>
+                        <p class="step-description">Choose the best technician, communicate through our platform, and release payment only when the job is completed.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="categories">
+    <!-- Features Section -->
+    <section class="features-section" id="features">
         <div class="container">
-            <h2>Service Categories</h2>
-            <ul>
-                <li>Electricians</li>
-                <li>Plumbers</li>
-                <li>AC Repair</li>
-                <li>Mechanics</li>
-                <li>Painters</li>
-                <li>Carpenters</li>
-            </ul>
+            <div class="section-header text-center fade-in">
+                <h2 class="section-title">Why Choose Service Marketplace</h2>
+                <p class="section-subtitle">Your safety and satisfaction are our top priorities</p>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="feature-card card-custom text-center h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="feature-title">Verified Technicians</h4>
+                        <p class="feature-description">All professionals are thoroughly screened, background-checked, and verified for your safety.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="feature-card card-custom text-center h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4 class="feature-title">Competitive Offers</h4>
+                        <p class="feature-description">Get multiple bids for your job and choose the best price that fits your budget.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="feature-card card-custom text-center h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4 class="feature-title">Secure Payments</h4>
+                        <p class="feature-description">Money is held safely and released only when you're completely satisfied with the work.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="feature-card card-custom text-center h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="feature-title">24/7 Support</h4>
+                        <p class="feature-description">Our dedicated support team is always available to assist you with any questions or concerns.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="testimonials">
+    <!-- Technician Categories -->
+    <section class="categories-section">
         <div class="container">
-            <h2>Testimonials</h2>
-            <p>What our customers say.</p>
+            <div class="section-header text-center fade-in">
+                <h2 class="section-title">Popular Services</h2>
+                <p class="section-subtitle">Find experts for all your home maintenance needs</p>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 fade-in">
+                    <div class="category-card text-center">
+                        <div class="category-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h5 class="category-name">Electricians</h5>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 fade-in">
+                    <div class="category-card text-center">
+                        <div class="category-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h5 class="category-name">Plumbers</h5>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 fade-in">
+                    <div class="category-card text-center">
+                        <div class="category-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h5 class="category-name">AC Repair</h5>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 fade-in">
+                    <div class="category-card text-center">
+                        <div class="category-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h5 class="category-name">Mechanics</h5>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 fade-in">
+                    <div class="category-card text-center">
+                        <div class="category-icon">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h5 class="category-name">Painters</h5>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 fade-in">
+                    <div class="category-card text-center">
+                        <div class="category-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h5 class="category-name">Carpenters</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="cta">
-        <div class="container text-center">
-            <h2>Ready to start?</h2>
-            <a href="#" class="btn btn-primary">Get Started</a>
-            <a href="#" class="btn btn-secondary">Join as Technician</a>
-        </div>
-    </section>
-
-    <footer>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
         <div class="container">
-            <p>© 2023 Service Marketplace. All rights reserved.</p>
+            <div class="section-header text-center fade-in">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Join thousands of satisfied customers</p>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="testimonial-card card-custom h-100">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Found an excellent electrician within hours! The process was smooth, and the pricing was transparent. Highly recommend this platform for anyone needing home services."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="author-img">
+                            <div class="author-info">
+                                <h5 class="author-name">Sarah Johnson</h5>
+                                <p class="author-role">Homeowner, Los Angeles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="testimonial-card card-custom h-100">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"As a technician, this platform has transformed my business. I get quality leads daily and the payment system is secure and reliable. Best decision I've made!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-img">
+                            <div class="author-info">
+                                <h5 class="author-name">Michael Chen</h5>
+                                <p class="author-role">Licensed Plumber, New York</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="testimonial-card card-custom h-100">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Quick, professional, and affordable! I posted my AC repair request and received 5 proposals within an hour. The technician did an amazing job. Will definitely use again!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emily Rodriguez" class="author-img">
+                            <div class="author-info">
+                                <h5 class="author-name">Emily Rodriguez</h5>
+                                <p class="author-role">Property Manager, Miami</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-box card-custom text-center fade-in">
+                <h2 class="cta-title">Start Free — Pay Only When You Hire</h2>
+                <p class="cta-subtitle">Join thousands of satisfied customers and find the perfect technician for your needs today</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-lg btn-custom me-3">
+                        <i class="fas fa-plus-circle me-2"></i>Post a Request Now
+                    </a>
+                    <a href="#technician-signup" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-user-plus me-2"></i>Join as a Technician
+                    </a>
+                </div>
+                <div class="cta-features mt-4">
+                    <span class="cta-feature"><i class="fas fa-check me-2"></i>No upfront fees</span>
+                    <span class="cta-feature"><i class="fas fa-check me-2"></i>Instant proposals</span>
+                    <span class="cta-feature"><i class="fas fa-check me-2"></i>Secure payment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <i class="fas fa-tools brand-icon"></i>
+                        <span class="brand-text">Service Marketplace</span>
+                    </div>
+                    <p class="footer-description">Connecting customers with trusted local technicians for all home maintenance and technical services.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#cta">Get Started</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">For Customers</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Post a Request</a></li>
+                        <li><a href="#">Browse Technicians</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">For Technicians</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Join as a Technician</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">&copy; 2025 Service Marketplace. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="language-switch">
+                            <a href="#" class="lang-link active">English</a>
+                            <span class="separator">|</span>
+                            <a href="#" class="lang-link">العربية</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
     <script src="js/script.js"></script>
 </body>
 </html>
